@@ -62,6 +62,16 @@ const Login = () => {
           <Button type="submit" className="w-full h-11 text-base font-medium">Sign In</Button>
         </form>
 
+        <div className="relative my-6">
+          <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-border" /></div>
+          <div className="relative flex justify-center text-xs uppercase"><span className="bg-card px-3 text-muted-foreground">or continue with</span></div>
+        </div>
+
+        <Button variant="outline" className="w-full h-11 gap-3 text-base font-medium" onClick={() => toast({ title: "Google Sign-In", description: "Google authentication is UI-only for now." })}>
+          <Chrome className="w-5 h-5" />
+          Sign in with Google
+        </Button>
+
         <p className="text-center text-sm text-muted-foreground mt-6">
           Don't have an account? <Link to="/signup" className="text-primary font-medium hover:underline">Sign up</Link>
         </p>
