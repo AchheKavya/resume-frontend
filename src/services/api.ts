@@ -84,14 +84,14 @@ import axios, { AxiosRequestHeaders } from "axios";
 // 🔐 Login API (no token needed here)
 const loginApi = axios.create({
   // baseURL: "http://127.0.0.1:8000/api/",
-  baseURL:"https://resume-project-z8ag.onrender.com/",
+  baseURL:"https://resume-project-b.onrender.com/api/",
   withCredentials:false,
 });
 
 // 🔐 Main API (with token)
 const API = axios.create({
   // baseURL: "http://127.0.0.1:8000/api/",
-   baseURL:"https://resume-project-z8ag.onrender.com/",
+  baseURL:"https://resume-project-b.onrender.com/api/",
   withCredentials: false,
 });
 

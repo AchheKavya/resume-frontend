@@ -122,15 +122,32 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(userData);
   };
 
-  const signup = async (username: string, email: string, password: string) => {
-    await API.post("signup/", {
-      username,
-      email,
-      password,
-    });
+  // const signup = async (username: string, email: string, password: string) => {
+  //   await API.post("signup/", {
+  //     username,
+  //     email,
+  //     password,
+  //   });
 
-    await login(username, password);
-  };
+  //   await login(username, password);
+  // };
+
+
+  const signup = async (username: string, email: string, password: string) => {
+  console.log("STEP 1: signup function called");
+
+  await API.post("signup/", {
+    username,
+    email,
+    password,
+  });
+
+  console.log("STEP 2: signup API success");
+
+  await login(username, password);
+
+  console.log("STEP 3: login success");
+};
 
   const logout = () => {
     localStorage.removeItem("access_token");

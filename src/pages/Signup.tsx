@@ -350,42 +350,85 @@ const Signup = () => {
     return Object.keys(e).length === 0;
   };
 
+  // const handleSubmit = async (ev: React.FormEvent) => {
+  //   ev.preventDefault();
+
+  //   if (!validate()) return;
+
+  //   try {
+  //     const res = await signup(username, email, password);
+  //     console.log("Signup Response:", res);
+
+  //     toast({
+  //       title: "Account created!",
+  //       description: "Welcome to ResumeHub.",
+  //     });
+
+  //     navigate("/login");
+  //   } catch (err: any) {
+  //     console.error("Signup Error:", err);
+
+  //     let message = "Signup failed. Try again.";
+
+  //     if (err.response?.data) {
+  //       const data = err.response.data;
+
+  //       if (data.username) message = data.username[0];
+  //       else if (data.email) message = data.email[0];
+  //       else if (data.password) message = data.password[0];
+  //       else if (data.detail) message = data.detail;
+  //     }
+
+  //     toast({
+  //       title: "Error",
+  //       description: message,
+  //       variant: "destructive",
+  //     });
+  //   }
+  // };
+
   const handleSubmit = async (ev: React.FormEvent) => {
-    ev.preventDefault();
+  ev.preventDefault();
+  console.log("STEP A: form submitted");
 
-    if (!validate()) return;
+  if (!validate()) {
+    console.log("STEP B: validation failed");
+    return;
+  }
 
-    try {
-      const res = await signup(username, email, password);
-      console.log("Signup Response:", res);
+  console.log("STEP C: calling signup");
 
-      toast({
-        title: "Account created!",
-        description: "Welcome to ResumeHub.",
-      });
+  try {
+    const res = await signup(username, email, password);
+    console.log("STEP D: signup done", res);
 
-      navigate("/login");
-    } catch (err: any) {
-      console.error("Signup Error:", err);
+    toast({
+      title: "Account created!",
+      description: "Welcome to ResumeHub.",
+    });
 
-      let message = "Signup failed. Try again.";
+    navigate("/login");
+  } catch (err: any) {
+    console.error("Signup Error:", err);
 
-      if (err.response?.data) {
-        const data = err.response.data;
+    let message = "Signup failed. Try again.";
 
-        if (data.username) message = data.username[0];
-        else if (data.email) message = data.email[0];
-        else if (data.password) message = data.password[0];
-        else if (data.detail) message = data.detail;
-      }
+    if (err.response?.data) {
+      const data = err.response.data;
 
-      toast({
-        title: "Error",
-        description: message,
-        variant: "destructive",
-      });
+      if (data.username) message = data.username[0];
+      else if (data.email) message = data.email[0];
+      else if (data.password) message = data.password[0];
+      else if (data.detail) message = data.detail;
     }
-  };
+
+    toast({
+      title: "Error",
+      description: message,
+      variant: "destructive",
+    });
+  }
+};
 
   return (
     <div className="min-h-screen bg-[#f6f8f7] flex flex-col">

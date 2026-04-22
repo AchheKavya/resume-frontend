@@ -316,7 +316,7 @@ const ForgotPassword = () => {
   const { toast } = useToast();
 
   // const API_BASE = "http://127.0.0.1:8000/api/";
-   const API_BASE="https://resume-project-z8ag.onrender.com/api";
+   const API_BASE="https://resume-project-b.onrender.com/api/";
 
   // STEP 1: Send OTP email
   const handleEmailSubmit = async (e: React.FormEvent) => {
@@ -367,7 +367,7 @@ const ForgotPassword = () => {
 
     try {
       // await axios.post("http://127.0.0.1:8000/api/verify-otp/", {
-      await axios.post( "https://resume-project-z8ag.onrender.com/api/verify-otp", {
+      await axios.post( "https://resume-project-b.onrender.com/api/verify-otp/", {
         email: email,
         otp: otp,
       });
@@ -405,7 +405,7 @@ const ForgotPassword = () => {
 
     try {
       // const res = await axios.post("http://127.0.0.1:8000/api/reset-password/", {
-      const res = await axios.post("https://resume-project-z8ag.onrender.com/api/reset-password", {
+      const res = await axios.post("https://resume-project-b.onrender.com/api/reset-password/", {
         email: email,
         otp: otp,
         new_password: newPassword,

@@ -3,18 +3,30 @@ import axios from "axios";
 
 const API = axios.create({
   // baseURL: "http://127.0.0.1:8000/api/",
-  baseURL:"https://resume-project-z8ag.onrender.com/api",
+  baseURL:"https://resume-project-z8ag.onrender.com/api/",
   
 });
 
 // 🔐 Attach token automatically
+// API.interceptors.request.use((req) => {
+//   const token = localStorage.getItem("token");
+//   if (token) {
+//     req.headers.Authorization = `Bearer ${token}`;
+//   }
+//   return req;
+// });
+
 API.interceptors.request.use((req) => {
-  const token = localStorage.getItem("token");
-  if (token) {
+  const token = localStorage.getItem("access_token");
+
+  if (token && !req.url?.includes("signup")) {
     req.headers.Authorization = `Bearer ${token}`;
   }
+
   return req;
 });
+
+
 
 const AuthContext = createContext<any>(null);
 
@@ -22,7 +34,7 @@ export const AuthProvider = ({ children }: any) => {
 
   // ✅ SIGNUP
   const signup = async (username: string, email: string, password: string) => {
-    const res = await API.post("register/", {
+    const res = await API.post("signup/", {
       username,
       email,
       password,
