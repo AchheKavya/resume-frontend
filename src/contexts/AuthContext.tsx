@@ -133,18 +133,40 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   // };
 
 
-  const signup = async (username: string, email: string, password: string) => {
-  console.log("STEP 1: signup function called");
+  // const signup = async (username: string, email: string, password: string) => {
+  // console.log("STEP 1: signup function called");
 
-  await API.post("signup/", {
-    username,
-    email,
-    password,
-  });
+  // await API.post("signup/", {
+  //   username,
+  //   email,
+  //   password,
+  // });
+
+
+  const signup = async (username: string, email: string, password: string) => {
+  try {
+    console.log("STEP 1: signup function called");
+
+    const res = await API.post("signup/", {
+      username,
+      email,
+      password,
+    });
+
+    console.log("STEP 2: signup API success", res.data);
+
+    // ✅ DO NOT auto login here
+    return res.data;
+
+  } catch (error: any) {
+    console.error("Signup failed:", error?.response?.data || error.message);
+    throw error;
+  }
+};
 
   console.log("STEP 2: signup API success");
 
-  await login(username, password);
+  // await login(username, password);
 
   console.log("STEP 3: login success");
 };
