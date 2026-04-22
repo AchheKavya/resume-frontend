@@ -164,12 +164,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }
 };
 
-  console.log("STEP 2: signup API success");
+//   console.log("STEP 2: signup API success");
 
-  // await login(username, password);
+//   // await login(username, password);
 
-  console.log("STEP 3: login success");
-};
+//   console.log("STEP 3: login success");
+// };
 
   const logout = () => {
     localStorage.removeItem("access_token");
