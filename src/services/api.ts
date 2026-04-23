@@ -97,19 +97,57 @@ const API = axios.create({
   withCredentials:true,
 });
 
-// 🔑 Attach JWT automatically
-API.interceptors.request.use((config) => {
-  const accessToken =
-    localStorage.getItem("access_token") ||
-    localStorage.getItem("token") ||
-    localStorage.getItem("access");
+// // 🔑 Attach JWT automatically
+// API.interceptors.request.use((config) => {
+//   // const accessToken =
+//   //   localStorage.getItem("access_token") ||
+//   //   localStorage.getItem("token") ||
+//   //   localStorage.getItem("access");
 
-  if (accessToken) {
-    config.headers = (config.headers || {}) as AxiosRequestHeaders;
-    config.headers.Authorization = `Bearer ${accessToken}`;
+//   const accessToken = localStorage.getItem("access_token");
+
+//   if (accessToken) {
+//     config.headers = (config.headers || {}) as AxiosRequestHeaders;
+//     config.headers.Authorization = `Bearer ${accessToken}`;
+//   }
+
+//   return config;
+// });
+
+
+//   API.interceptors.request.use((config) => {
+//   const accessToken = localStorage.getItem("access_token");
+
+//   if (
+//     accessToken &&
+//     !config.url?.includes("login") &&
+//     !config.url?.includes("signup") &&
+//     !config.url?.includes("forgot-password")
+//   ) {
+//     config.headers = config.headers || {};
+//     config.headers.Authorization = `Bearer ${accessToken}`;
+//   }
+
+//   return config;
+// });
+
+
+
+API.interceptors.request.use((config) => {
+  const token = localStorage.getItem("access_token");
+
+  const url = config.url || "";
+
+  const isPublic =
+    url.includes("/login") ||
+    url.includes("/signup") ||
+    url.includes("/forgot-password");
+
+  if (token && !isPublic) {
+    config.headers = config.headers || {};
+    config.headers.Authorization = `Bearer ${token}`;
   }
 
   return config;
 });
-
 export { API, loginApi };
