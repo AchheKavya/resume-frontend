@@ -154,7 +154,7 @@ import Template3Form from "./pages/Template3Form";
 import Template4Form from "./pages/Template4Form";
 import TemplatePreview from "./pages/ResumePreview";
 import ResumePreview from "./pages/ResumePreview";
-
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -173,10 +173,11 @@ const App = () => (
             <Route
               path="/dashboard"
               element={
-                <DashboardLayout>
-                  <Dashboard />
-                </DashboardLayout>
-                
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <Dashboard />
+                  </DashboardLayout>
+                </ProtectedRoute>
               }
             />
             
@@ -204,14 +205,26 @@ const App = () => (
                 </DashboardLayout>
               }
             />
-            <Route
+            {/* <Route
               path="/profile"
               element={
                 <DashboardLayout>
                   <Profile />
                 </DashboardLayout>
               }
-            />
+            /> */}
+
+            <Route
+  path="/profile"
+  element={
+    <ProtectedRoute>
+      <DashboardLayout>
+        <Profile />
+      </DashboardLayout>
+    </ProtectedRoute>
+  }
+/>
+
             <Route
               path="/history"
               element={
