@@ -85,14 +85,16 @@ import axios, { AxiosRequestHeaders } from "axios";
 const loginApi = axios.create({
   // baseURL: "http://127.0.0.1:8000/api/",
   baseURL:"https://resume-project-b.onrender.com/api/",
-  withCredentials:false,
+  // withCredentials:false,
+  withCredentials:true,
 });
 
 // 🔐 Main API (with token)
 const API = axios.create({
   // baseURL: "http://127.0.0.1:8000/api/",
   baseURL:"https://resume-project-b.onrender.com/api/",
-  withCredentials: false,
+  // withCredentials: false,
+  withCredentials:true,
 });
 
 // 🔑 Attach JWT automatically
