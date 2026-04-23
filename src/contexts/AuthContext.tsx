@@ -81,17 +81,41 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [user, setUser] = useState<UserType | null>(null);
 
-  useEffect(() => {
-    const accessToken = localStorage.getItem("access_token");
-    const savedUser = localStorage.getItem("user");
+  // useEffect(() => {
+  //   const accessToken = localStorage.getItem("access_token");
+  //   const savedUser = localStorage.getItem("user");
 
-    if (accessToken && savedUser) {
-      const parsed = JSON.parse(savedUser);
-      setIsAuthenticated(true);
-      setIsAdmin(parsed?.isAdmin ?? false);
-      setUser(parsed);
+  //   if (accessToken && savedUser) {
+  //     const parsed = JSON.parse(savedUser);
+  //     setIsAuthenticated(true);
+  //     setIsAdmin(parsed?.isAdmin ?? false);
+  //     setUser(parsed);
+  //   }
+  // }, []);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+  const accessToken = localStorage.getItem("access_token");
+  const savedUser = localStorage.getItem("user");
+
+  if (!accessToken || !savedUser) return;
+
+  try {
+    const parsed = JSON.parse(savedUser);
+
+    if (typeof parsed.isAdmin !== "boolean") {
+      throw new Error();
     }
-  }, []);
+
+    setIsAuthenticated(true);
+    setIsAdmin(parsed.isAdmin);
+    setUser(parsed);
+  } catch {
+    localStorage.removeItem("user");
+  }
+  setLoading(false);
+}, []);
 
   const login = async (username: string, password: string) => {
     const response = await loginApi.post("login/", {
