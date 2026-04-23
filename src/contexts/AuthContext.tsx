@@ -60,6 +60,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   user: UserType | null;
   isAdmin: boolean;
+  loading:boolean;
   login: (username: string, password: string) => Promise<void>;
   signup: (username: string, email: string, password: string) => Promise<void>;
   logout: () => void;
@@ -81,41 +82,32 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [user, setUser] = useState<UserType | null>(null);
 
-  // useEffect(() => {
-  //   const accessToken = localStorage.getItem("access_token");
-  //   const savedUser = localStorage.getItem("user");
-
-  //   if (accessToken && savedUser) {
-  //     const parsed = JSON.parse(savedUser);
-  //     setIsAuthenticated(true);
-  //     setIsAdmin(parsed?.isAdmin ?? false);
-  //     setUser(parsed);
-  //   }
-  // }, []);
-
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+
+useEffect(() => {
   const accessToken = localStorage.getItem("access_token");
   const savedUser = localStorage.getItem("user");
 
-  if (!accessToken || !savedUser) return;
+  if (accessToken && savedUser) {
+    try {
+      const parsed = JSON.parse(savedUser);
 
-  try {
-    const parsed = JSON.parse(savedUser);
+      if (typeof parsed.isAdmin !== "boolean") {
+        throw new Error();
+      }
 
-    if (typeof parsed.isAdmin !== "boolean") {
-      throw new Error();
+      setIsAuthenticated(true);
+      setIsAdmin(parsed.isAdmin);
+      setUser(parsed);
+    } catch {
+      localStorage.removeItem("user");
     }
-
-    setIsAuthenticated(true);
-    setIsAdmin(parsed.isAdmin);
-    setUser(parsed);
-  } catch {
-    localStorage.removeItem("user");
   }
-  setLoading(false);
+
+  setLoading(false); // 🔥 ALWAYS RUN THIS
 }, []);
+
 
   const login = async (username: string, password: string) => {
     const response = await loginApi.post("login/", {
@@ -146,26 +138,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(userData);
   };
 
-  // const signup = async (username: string, email: string, password: string) => {
-  //   await API.post("signup/", {
-  //     username,
-  //     email,
-  //     password,
-  //   });
-
-  //   await login(username, password);
-  // };
-
-
-  // const signup = async (username: string, email: string, password: string) => {
-  // console.log("STEP 1: signup function called");
-
-  // await API.post("signup/", {
-  //   username,
-  //   email,
-  //   password,
-  // });
-
 
   const signup = async (username: string, email: string, password: string) => {
   try {
@@ -188,12 +160,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }
 };
 
-//   console.log("STEP 2: signup API success");
 
-//   // await login(username, password);
-
-//   console.log("STEP 3: login success");
-// };
 
   const logout = () => {
     localStorage.removeItem("access_token");
@@ -211,6 +178,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         isAuthenticated,
         user,
         isAdmin,
+        loading,
         login,
         signup,
         logout,
