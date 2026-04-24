@@ -219,7 +219,7 @@ export default function App() {
                     </div>
                   </div>
                 ))}
-                <button onClick={() => addItem('projects', {title:'', tech:'', desc:'', features:'', role:'', link:''})} className="w-full py-3 border-2 border-dashed border-slate-200 text-blue-500 font-bold text-xs rounded-xl hover:bg-blue-50 transition-colors">+ ADD PROJECT</button>
+                <button onClick={() => addItem('projects', {title:'', tech:'', desc:'', features:'', role:'', link:''})} className="w-full py-3 border-2 border-dashed border-green-200 text-green-500 font-bold text-xs rounded-xl hover:bg-green-50 transition-colors">+ ADD PROJECT</button>
               </div>
             )}
           </section>
@@ -240,7 +240,7 @@ export default function App() {
                     </div>
                   </div>
                 ))}
-                <button onClick={() => addItem('educations', {degree:'', institution:'', period:'', score:''})} className="w-full py-3 border-2 border-dashed border-slate-200 text-blue-500 font-bold text-xs rounded-xl">+ ADD EDUCATION</button>
+                <button onClick={() => addItem('educations', {degree:'', institution:'', period:'', score:''})} className="w-full py-3 border-2 border-dashed border-green-200 text-green-500 font-bold text-xs rounded-xl">+ ADD EDUCATION</button>
               </div>
             )}
           </section>
@@ -259,7 +259,7 @@ export default function App() {
                     <InputField label="Responsibilities" isTextArea value={exp.desc} onChange={e => handleArrayChange('experience', i, 'desc', e.target.value)} />
                   </div>
                 ))}
-                <button onClick={() => addItem('experience', {company:'', role:'', period:'', desc:'', tech:''})} className="w-full py-3 border-2 border-dashed border-slate-200 text-blue-500 font-bold text-xs rounded-xl">+ ADD EXPERIENCE</button>
+                <button onClick={() => addItem('experience', {company:'', role:'', period:'', desc:'', tech:''})} className="w-full py-3 border-2 border-dashed border-green-200 text-green-500 font-bold text-xs rounded-xl">+ ADD EXPERIENCE</button>
               </div>
             )}
           </section>
@@ -277,7 +277,7 @@ export default function App() {
                     <button onClick={() => removeItem('skills', i)} className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full p-1 shadow-md hover:bg-red-600"><Trash2 size={10}/></button>
                   </div>
                 ))}
-                <button onClick={() => addItem('skills', {category:'', names:''})} className="text-blue-500 font-black text-[10px] hover:underline">+ ADD CATEGORY</button>
+                <button onClick={() => addItem('skills', {category:'', names:''})} className="text-green-500 font-black text-[10px] hover:underline">+ ADD CATEGORY</button>
                 <div className="pt-2 border-t mt-2">
                     <InputField label="Soft Skills (Comma separated)" isTextArea value={form.softSkills} onChange={e => setForm({...form, softSkills: e.target.value})} />
                 </div>
