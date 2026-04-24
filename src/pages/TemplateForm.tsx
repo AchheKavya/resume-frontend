@@ -193,7 +193,7 @@ const handleCustomChange = (sectionIndex, itemIndex, value) => {
       <div className="w-full md:w-[450px] lg:w-[550px] h-full bg-white shadow-xl flex flex-col z-10">
         <header className="p-6 border-b border-slate-100 flex items-center justify-between bg-white sticky top-0">
           <div className="flex items-center gap-2">
-            <div className="p-2 bg-blue-600 rounded-lg text-white">
+            <div className="p-2 bg-green-600 rounded-lg text-white">
               <FileText size={20} />
             </div>
             <h1 className="text-xl font-black text-slate-800 tracking-tight">RESUMAKE</h1>
@@ -202,7 +202,7 @@ const handleCustomChange = (sectionIndex, itemIndex, value) => {
             <button 
                onClick={downloadPDF}
                disabled={isDownloading || !libsLoaded}
-               className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 text-white rounded-lg text-sm font-bold transition-all shadow-lg shadow-blue-200"
+               className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-slate-400 text-white rounded-lg text-sm font-bold transition-all shadow-lg shadow-green-200"
             >
               {isDownloading ? (
                 <Loader2 size={16} className="animate-spin" />
@@ -265,7 +265,7 @@ const handleCustomChange = (sectionIndex, itemIndex, value) => {
                 ))}
                 <button 
                   onClick={() => addItem("experiences", { job_title: "", company: "", period: "", desc: "" })}
-                  className="w-full py-3 flex items-center justify-center gap-2 text-sm font-bold text-blue-600 border-2 border-dashed border-blue-100 rounded-xl hover:bg-blue-50 transition-all"
+                  className="w-full py-3 flex items-center justify-center gap-2 text-sm font-bold text-green-600 border-2 border-dashed border-green-100 rounded-xl hover:bg-green-50 transition-all"
                 >
                   <Plus size={16} /> Add Experience
                 </button>
