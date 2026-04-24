@@ -51,7 +51,8 @@ export default function App() {
   const resumeRef = useRef(null);
   const [isDownloading, setIsDownloading] = useState(false);
   const [libsLoaded, setLibsLoaded] = useState(false);
-  const [themeColor, setThemeColor] = useState('#2563eb');
+ 
+  const [themeColor, setThemeColor] = useState('#16a34a');
 
   const [form, setForm] = useState({
     full_name: "Kavya Jampala",
@@ -364,7 +365,7 @@ export default function App() {
           <div className="flex-1 p-12">
             <header className="mb-10">
               <h1 className="text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">{form.full_name}</h1>
-              <p className="text-xl font-bold text-blue-600 mt-4 tracking-tight uppercase">{form.role}</p>
+              <p className="text-green-600 font-bold">{form.role}</p>
               <p className="mt-8 text-[10pt] text-slate-600 leading-relaxed italic">{form.summary}</p>
             </header>
 
@@ -383,7 +384,7 @@ export default function App() {
                         <h3 className="font-bold text-[11pt] text-slate-800">{exp.role}</h3>
                         <span className="text-[9pt] font-bold text-slate-400 italic">{exp.duration}</span>
                       </div>
-                      <p className="text-[10pt] text-blue-600 font-bold mb-2">{exp.company}</p>
+                      <p className="text-[10pt] text-green-600 font-bold mb-2">{exp.company}</p>
                       <p className="text-[9.5pt] text-slate-600 mb-3 leading-relaxed whitespace-pre-wrap">{exp.responsibilities}</p>
                       {exp.technologies && (
                         <p className="text-[8.5pt] text-slate-500 font-medium italic">Stack: {exp.technologies}</p>
@@ -432,7 +433,7 @@ export default function App() {
                       <h3 className="font-bold text-[11pt] text-slate-800 uppercase">{edu.degree}</h3>
                       <span className="text-[9pt] font-bold text-slate-400">{edu.startYear} — {edu.endYear}</span>
                     </div>
-                    <p className="text-[10pt] text-blue-600 font-medium">{edu.institution}</p>
+                    <p className="text-[10pt] text-green-600 font-medium">{edu.institution}</p>
                   </div>
                 ))}
               </div>
