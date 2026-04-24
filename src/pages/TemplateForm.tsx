@@ -355,7 +355,7 @@ const handleCustomChange = (sectionIndex, itemIndex, value) => {
             period: ""
           })
         }
-        className="w-full py-3 text-sm font-bold text-blue-600 border-2 border-dashed border-blue-100 rounded-xl"
+        className="w-full py-3 text-sm font-bold text-green-600 border-2 border-dashed border-green-100 rounded-xl"
       >
         + Add Education
       </button>
@@ -433,7 +433,7 @@ const handleCustomChange = (sectionIndex, itemIndex, value) => {
         onClick={() =>
           addItem("projects", { title: "", description: "" ,technologies:"",period:"",link:""})
         }
-        className="w-full py-3 text-sm font-bold text-blue-600 border-2 border-dashed border-blue-100 rounded-xl"
+        className="w-full py-3 text-sm font-bold text-green-600 border-2 border-dashed border-green-100 rounded-xl"
       >
         + Add Project
       </button>
@@ -478,7 +478,7 @@ const handleCustomChange = (sectionIndex, itemIndex, value) => {
 
           <button
             onClick={() => addCustomItem(i)}
-            className="text-blue-600 text-sm"
+            className="text-green-600 text-sm"
           >
             + Add Item
           </button>
@@ -487,7 +487,7 @@ const handleCustomChange = (sectionIndex, itemIndex, value) => {
 
       <button
         onClick={addCustomSection}
-        className="w-full py-3 text-sm font-bold text-blue-600 border-2 border-dashed border-blue-100 rounded-xl"
+        className="w-full py-3 text-sm font-bold text-green-600 border-2 border-dashed border-green-100 rounded-xl"
       >
         + Add Section
       </button>
