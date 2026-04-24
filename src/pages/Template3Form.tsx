@@ -31,7 +31,7 @@ const InputField = ({ label, placeholder, value, onChange, type = "text", isText
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className="w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all min-h-[80px] text-sm text-slate-700 bg-slate-50/50"
+        className="w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-green-500 outline-none transition-all min-h-[80px] text-sm text-slate-700 bg-slate-50/50"
       />
     ) : (
       <input
@@ -39,7 +39,7 @@ const InputField = ({ label, placeholder, value, onChange, type = "text", isText
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className="w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm text-slate-700 bg-slate-50/50"
+        className="w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-green-500 outline-none transition-all text-sm text-slate-700 bg-slate-50/50"
       />
     )}
   </div>
@@ -323,7 +323,7 @@ export default function App() {
                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 border-b border-white/10 pb-2 mb-4">Expertise</h3>
                 {form.skillGroups.map((g, i) => (
                   <div key={i} className="mb-4">
-                    <p className="text-[7.5pt] font-black text-blue-400 uppercase mb-1">{g.category}</p>
+                    <p className="text-[7.5pt] font-black text-green-400 uppercase mb-1">{g.category}</p>
                     <p className="text-[8.5pt] text-slate-300 leading-relaxed font-light">{g.list}</p>
                   </div>
                 ))}
@@ -379,7 +379,7 @@ export default function App() {
                 <div className="space-y-8 ml-4 pl-6 border-l-2 border-slate-100">
                   {form.experience.map((exp, i) => (
                     <div key={i} className="relative">
-                      <div className="absolute -left-[31.5px] top-1.5 w-3 h-3 bg-blue-600 rounded-full border-2 border-white"></div>
+                      <div className="absolute -left-[31.5px] top-1.5 w-3 h-3 bg-green-600 rounded-full border-2 border-white"></div>
                       <div className="flex justify-between items-baseline">
                         <h3 className="font-bold text-[11pt] text-slate-800">{exp.role}</h3>
                         <span className="text-[9pt] font-bold text-slate-400 italic">{exp.duration}</span>
@@ -407,7 +407,7 @@ export default function App() {
                     <div key={i}>
                       <div className="flex justify-between items-baseline mb-1">
                         <h3 className="font-bold text-[11pt] text-slate-800">{proj.name}</h3>
-                        <span className="text-[8pt] font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">{proj.role}</span>
+                        <span className="text-[8pt] font-bold text-green-600 bg-green-50 px-2 py-1 rounded">{proj.role}</span>
                       </div>
                       <p className="text-[9.5pt] text-slate-600 leading-relaxed mb-3">{proj.description}</p>
                       <div className="space-y-1">
