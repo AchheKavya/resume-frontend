@@ -179,7 +179,7 @@ export default function App() {
                   <InputField label="Technologies used" value={exp.technologies} onChange={e => handleArr('experience', i, 'technologies', e.target.value)} />
                 </div>
               ))}
-              <button onClick={() => add('experience', {company:'', role:'', duration:'', responsibilities:'', technologies:''})} className="w-full py-2 border-2 border-dashed border-slate-200 text-slate-400 font-bold text-[10px] hover:border-blue-300 hover:text-blue-500">+ ADD EXPERIENCE / INTERNSHIP</button>
+              <button onClick={() => add('experience', {company:'', role:'', duration:'', responsibilities:'', technologies:''})} className="w-full py-2 border-2 border-dashed border-slate-200 text-slate-400 font-bold text-[10px] hover:border-green-300 hover:text-green-500">+ ADD EXPERIENCE / INTERNSHIP</button>
             </div>
           )}
 
@@ -197,7 +197,7 @@ export default function App() {
                   <InputField label="Role" value={proj.role} onChange={e => handleArr('projects', i, 'role', e.target.value)} />
                 </div>
               ))}
-              <button onClick={() => add('projects', {name:'', description:'', technologies:'', features:'', role:''})} className="w-full py-2 border-2 border-dashed border-slate-200 text-slate-400 font-bold text-[10px] hover:border-blue-300 hover:text-blue-500">+ ADD PROJECT</button>
+              <button onClick={() => add('projects', {name:'', description:'', technologies:'', features:'', role:''})} className="w-full py-2 border-2 border-dashed border-slate-200 text-slate-400 font-bold text-[10px] hover:border-green-300 hover:text-green-500">+ ADD PROJECT</button>
             </div>
           )}
 
@@ -215,7 +215,7 @@ export default function App() {
                   }} className="text-slate-300 hover:text-red-500 transition-colors"><Trash2 size={14}/></button>
                 </div>
               ))}
-              <button onClick={() => setForm({...form, softSkills: [...form.softSkills, ""]})} className="text-[10px] font-bold text-blue-600">+ ADD SOFT SKILL</button>
+              <button onClick={() => setForm({...form, softSkills: [...form.softSkills, ""]})} className="text-[10px] font-bold text-green-600">+ ADD SOFT SKILL</button>
             </div>
           )}
 
@@ -230,7 +230,7 @@ export default function App() {
                   <InputField label="Skills" value={g.list} onChange={e => handleArr('skillGroups', i, 'list', e.target.value)} />
                 </div>
               ))}
-              <button onClick={() => add('skillGroups', {category:'', list:''})} className="w-full py-2 border-2 border-dashed border-slate-200 text-slate-400 font-bold text-[10px]">+ ADD SKILL GROUP</button>
+              <button onClick={() => add('skillGroups', {category:'', list:''})} className="w-full py-2 border-2 border-dashed border-slate-200 text-slate-400 font-bold text-[10px] hover:border-green-300 hover:text-green-500">+ ADD SKILL GROUP</button>
             </div>
           )}
 
@@ -249,7 +249,7 @@ export default function App() {
                   </div>
                 </div>
               ))}
-              <button onClick={() => add('education', {degree:'', institution:'', startYear:'', endYear:''})} className="w-full py-2 border-2 border-dashed border-slate-200 text-slate-400 font-bold text-[10px]">+ ADD EDUCATION</button>
+              <button onClick={() => add('education', {degree:'', institution:'', startYear:'', endYear:''})} className="w-full py-2 border-2 border-dashed border-slate-200 text-slate-400 font-bold text-[10px] hover:border-green-300 hover:text-green-500">+ ADD EDUCATION</button>
             </div>
           )}
 
@@ -272,7 +272,7 @@ export default function App() {
                   <InputField label="Content (New line for new point)" isTextArea value={cs.content} onChange={e => handleArr('customSections', i, 'content', e.target.value)} />
                 </div>
               ))}
-              <button onClick={() => add('customSections', {title:'', content:'', isPoints: false})} className="w-full py-2 border-2 border-dashed border-blue-200 text-blue-500 font-bold text-[10px]">+ NEW MAIN SECTION</button>
+              <button onClick={() => add('customSections', {title:'', content:'', isPoints: false})} className="w-full py-2 border-2 border-dashed border-green-200 text-green-500 font-bold text-[10px]">+ NEW MAIN SECTION</button>
             </div>
           )}
 
