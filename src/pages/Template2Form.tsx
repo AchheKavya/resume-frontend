@@ -30,7 +30,7 @@ const InputField = ({ label, placeholder, value, onChange, type = "text", isText
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className="w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all min-h-[80px] text-sm text-slate-700 bg-white"
+        className="w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-green-500 outline-none transition-all min-h-[80px] text-sm text-slate-700 bg-white"
       />
     ) : (
       <input
@@ -38,7 +38,7 @@ const InputField = ({ label, placeholder, value, onChange, type = "text", isText
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className="w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm text-slate-700 bg-white"
+        className="w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-green-500 outline-none transition-all text-sm text-slate-700 bg-white"
       />
     )}
   </div>
@@ -305,11 +305,11 @@ export default function App() {
                                 <button onClick={() => removeCustomItem(sIdx, iIdx)} className="text-red-300 hover:text-red-500"><Trash2 size={12}/></button>
                             </div>
                         ))}
-                        <button onClick={() => addCustomItem(sIdx)} className="text-blue-500 font-black text-[10px]">+ ADD POINT</button>
+                        <button onClick={() => addCustomItem(sIdx)} className="text-green-500 font-black text-[10px]">+ ADD POINT</button>
                     </div>
                   </div>
                 ))}
-                <button onClick={addCustomSection} className="w-full py-3 border-2 border-dashed border-slate-200 text-blue-500 font-bold text-xs rounded-xl hover:bg-blue-50">+ ADD NEW SESSION</button>
+                <button onClick={addCustomSection} className="w-full py-3 border-2 border-dashed border-slate-200 text-green-500 font-bold text-xs rounded-xl hover:bg-green-50">+ ADD NEW SESSION</button>
               </div>
             )}
           </section>
