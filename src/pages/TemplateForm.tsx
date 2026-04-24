@@ -28,7 +28,7 @@ const SectionHeader = ({ icon: Icon, title, isOpen, onToggle }) => (
     className="w-full flex items-center justify-between p-4 bg-white border border-slate-200 rounded-t-xl hover:bg-slate-50 transition-colors"
   >
     <div className="flex items-center gap-3">
-      <div className="p-2 bg-blue-50 text-blue-600 rounded-lg">
+      <div className="p-2 bg-primary/10 text-primary rounded-lg">
         <Icon size={18} />
       </div>
       <h3 className="font-bold text-slate-800">{title}</h3>

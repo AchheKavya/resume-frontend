@@ -1,46 +1,3 @@
-// import React, { useState, useRef } from "react";
-
-// export default function Template4Form() {
-//   const resumeRef = useRef(null);
-
-//   const [form, setForm] = useState({
-//     full_name: "",
-//     email: "",
-//     summary: "",
-//     skills: [{ name: "" }]
-//   });
-
-//   return (
-//     <div className="flex h-screen">
-
-//       {/* LEFT */}
-//       <div className="w-[400px] p-5 space-y-3">
-//         <input placeholder="Name" onChange={(e)=>setForm({...form, full_name:e.target.value})} className="w-full border p-2"/>
-//         <input placeholder="Email" onChange={(e)=>setForm({...form, email:e.target.value})} className="w-full border p-2"/>
-//         <textarea placeholder="Summary" onChange={(e)=>setForm({...form, summary:e.target.value})} className="w-full border p-2"/>
-//       </div>
-
-//       {/* RIGHT */}
-//       <div className="flex-1 flex justify-center bg-gray-200 p-10">
-//         <div ref={resumeRef} className="w-[210mm] bg-white p-10">
-
-//           <h1 className="text-4xl text-purple-600 font-bold">
-//             {form.full_name}
-//           </h1>
-
-//           <p>{form.email}</p>
-
-//           <h2 className="text-purple-600 mt-4">Summary</h2>
-//           <p>{form.summary}</p>
-
-//         </div>
-//       </div>
-
-//     </div>
-//   );
-// }
-
-
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   Plus, Trash2, User, Mail, Phone, Github, Linkedin, 
@@ -67,7 +24,7 @@ const SectionHeader = ({ icon: Icon, title, isOpen, onToggle, theme }) => (
       <div className={`p-2 rounded-lg ${theme.bg} ${theme.primary}`}>
         <Icon size={20} />
       </div>
-      <h3 className="font-bold text-slate-800 tracking-tight">{title}</h3>
+      <h3 className="font-bold text-slate-800">{title}</h3>
     </div>
     <ChevronDown size={18} className={`text-slate-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
   </button>
@@ -487,3 +444,4 @@ export default function App() {
     </div>
   );
 }
+
