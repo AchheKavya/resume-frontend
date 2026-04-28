@@ -257,6 +257,7 @@ const UploadResume = () => {
                 <Briefcase className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
                 <Input
                   type="number"
+                  min="0"
                   placeholder="Enter experience"
                   value={experience}
                   onChange={(e) => setExperience(e.target.value)}
