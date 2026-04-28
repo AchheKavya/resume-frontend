@@ -19,8 +19,11 @@ const API = axios.create({
    baseURL:"https://resume-project-z8ag.onrender.com/api",
 });
 
-export const googleLogin = (token) => {
-  return API.post("/google-auth/", {
-    token: token,
-  });
+// export const googleLogin = (token) => {
+//   return API.post("/google-auth/", {
+//     token: token,
+//   });
+
+export const googleLogin = (data) => {
+  return API.post("/google-auth/", data);
 };
