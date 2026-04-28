@@ -64,6 +64,7 @@ const UploadResume = () => {
     }
 
     try {
+
       const formData = new FormData();
 
       formData.append("department", String(departmentId));
@@ -75,6 +76,9 @@ const UploadResume = () => {
       formData.append("file", file);
 
       await API.post("resumes/upload/", formData);
+
+
+      
 
       setSubmitted(true);
     } catch (err: any) {

@@ -144,12 +144,12 @@ const Resumes = () => {
 
   // ACTIONS
   const downloadResume = (id: number) => {
-    const backend = import.meta.env.VITE_BACKEND_URL || "http://127.0.0.1:8000";
+    const backend = import.meta.env.VITE_BACKEND_URL || "https://resume-project-b.onrender.com";
     window.open(`${backend}/api/resumes/download/${id}/`, "_blank");
   };
 
   const viewResume = (fileUrl: string) => {
-    const backend = import.meta.env.VITE_BACKEND_URL || "http://127.0.0.1:8000";
+    const backend = import.meta.env.VITE_BACKEND_URL || "https://resume-project-b.onrender.com";
     const fullUrl = fileUrl.startsWith("http") ? fileUrl : `${backend}${fileUrl}`;
     window.open(fullUrl, "_blank");
   };
