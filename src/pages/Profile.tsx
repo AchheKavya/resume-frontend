@@ -56,19 +56,112 @@ const Profile = () => {
     loadProfile();
   }, [toast]);
 
-  const handleUpdate = async () => {
+  // const handleUpdate = async () => {
+  //   try {
+  //     const { data } = await API.put("profile/", formData);
+  //     setProfile(data.data);
+  //     setEditing(false);
+  //     toast({
+  //       title: "Success",
+  //       description: "Profile updated successfully",
+  //     });
+  //   } catch (error) {
+  //     toast({ title: "Error", description: "Failed to update profile" });
+  //   }
+  // };
+
+//   const handleUpdate = async () => {
+//   try {
+//     const token = localStorage.getItem("access");
+
+//     let response;
+
+//     // retry once (handles backend sleep)
+//     for (let i = 0; i < 2; i++) {
+//       try {
+//         response = await API.put("profile/", formData, {
+//           headers: {
+//             Authorization: `Bearer ${token}`,
+//           },
+//         });
+//         break;
+//       } catch (err) {
+//         if (i === 1) throw err;
+//       }
+//     }
+
+//     setProfile(response.data); // matches your backend
+//     setEditing(false);
+
+//     toast({
+//       title: "Success",
+//       description: "Profile updated successfully",
+//     });
+
+//   } catch (error: any) {
+//     console.error("UPDATE ERROR:", error?.response || error);
+
+//     toast({
+//       title: "Error",
+//       description:
+//         error?.response?.data?.detail ||
+//         "Backend not responding / server sleeping",
+//     });
+//   }
+// };
+
+
+const handleUpdate = async () => {
+  try {
+    const token = localStorage.getItem("access");
+
+    if (!token) {
+        toast({
+          title: "Error",
+          description: "User not authenticated",
+        });
+        return;
+      }
+      
+
+    let response;
+
     try {
-      const { data } = await API.put("profile/", formData);
-      setProfile(data.data);
-      setEditing(false);
-      toast({
-        title: "Success",
-        description: "Profile updated successfully",
+      response = await API.put("profile/", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
-    } catch (error) {
-      toast({ title: "Error", description: "Failed to update profile" });
+    } catch (err) {
+      // retry once after delay
+      await new Promise((res) => setTimeout(res, 2000));
+
+      response = await API.put("profile/", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
     }
-  };
+
+    setProfile(response.data); // FIXED
+    setEditing(false);
+
+    toast({
+      title: "Success",
+      description: "Profile updated successfully",
+    });
+
+  } catch (error: any) {
+    console.error("UPDATE ERROR:", error?.response || error);
+
+    toast({
+      title: "Error",
+      description:
+        error?.response?.data?.detail ||
+        "Backend not reachable / server sleeping",
+    });
+  }
+};
 
   if (loading) {
     return (

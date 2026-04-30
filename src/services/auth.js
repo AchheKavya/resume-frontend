@@ -17,6 +17,7 @@ import axios from "axios";
 const API = axios.create({
   // baseURL: "http://127.0.0.1:8000/api",
    baseURL:"https://resume-project-z8ag.onrender.com/api",
+   timeout:1000,
 });
 
 // export const googleLogin = (token) => {
