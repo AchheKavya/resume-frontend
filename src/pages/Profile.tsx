@@ -113,7 +113,7 @@ const Profile = () => {
 
 const handleUpdate = async () => {
   try {
-    const token = localStorage.getItem("access");
+    const token = localStorage.getItem("access_token");
 
     if (!token) {
         toast({
@@ -122,7 +122,7 @@ const handleUpdate = async () => {
         });
         return;
       }
-      
+
 
     let response;
 
